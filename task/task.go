@@ -28,3 +28,8 @@ func (t *Task) Complete() {
 	t.Completed = true
 	t.TimeCompleted = &TimeCompleted
 }
+
+func (t *Task) Uncomplete() {
+	t.Completed = false
+	t.TimeCompleted = nil
+}
