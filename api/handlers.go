@@ -98,7 +98,7 @@ func (h *HTTPHandler) HandlerGetTask(w http.ResponseWriter, r *http.Request) {
 			Time:  time.Now(),
 		}
 		if errors.Is(err, task.TaskNotFound) {
-			http.Error(w, errDTO.ErrorToString(), http.StatusConflict)
+			http.Error(w, errDTO.ErrorToString(), http.StatusNotFound)
 		} else {
 			http.Error(w, errDTO.ErrorToString(), http.StatusInternalServerError)
 		}
