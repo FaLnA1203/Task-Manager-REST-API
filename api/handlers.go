@@ -97,7 +97,7 @@ func (h *HTTPHandler) HandlerGetTask(w http.ResponseWriter, r *http.Request) {
 			Error: err.Error(),
 			Time:  time.Now(),
 		}
-		if errors.Is(err, task.TaskAlreadyExists) {
+		if errors.Is(err, task.TaskNotFound) {
 			http.Error(w, errDTO.ErrorToString(), http.StatusConflict)
 		} else {
 			http.Error(w, errDTO.ErrorToString(), http.StatusInternalServerError)
@@ -224,5 +224,5 @@ func (h *HTTPHandler) HandlerDeleteTask(w http.ResponseWriter, r *http.Request) 
 		}
 		return
 	}
-	w.WriteHeader(http.StatusOK)
+	w.WriteHeader(http.StatusNoContent)
 }

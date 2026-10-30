@@ -8,7 +8,7 @@ import (
 
 type DtoTask struct {
 	Name        string `json:"name"`
-	Description string `json: "description"`
+	Description string `json:"description"`
 }
 
 func (task *DtoTask) Validate() error {
@@ -22,7 +22,7 @@ func (task *DtoTask) Validate() error {
 }
 
 type DtoError struct {
-	Error string `json: "error"`
+	Error string `json:"error"`
 	Time  time.Time
 }
 
@@ -35,5 +35,5 @@ func (e *DtoError) ErrorToString() string {
 }
 
 type DtoCompleted struct {
-	Completed bool `json: "completed"`
+	Completed bool `json:"completed"`
 }
